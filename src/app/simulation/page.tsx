@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import ProfileSelector from '@/components/simulation/ProfileSelector';
 import ComparisonResult from '@/components/results/ComparisonResult';
 import Button from '@/components/ui/Button';
@@ -56,10 +57,15 @@ export default function SimulationPage() {
             </ul>
           </div>
 
-          <div className="flex justify-center space-x-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Button variant="outline" onClick={handleReset}>
               別のプロフィールで試す
             </Button>
+            <Link href="/about-da" passHref>
+              <Button variant="secondary">
+                DAアルゴリズムについて学ぶ
+              </Button>
+            </Link>
             <Button variant="primary" onClick={handleGoHome}>
               トップページに戻る
             </Button>

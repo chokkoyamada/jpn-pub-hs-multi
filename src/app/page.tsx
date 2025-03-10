@@ -58,20 +58,39 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="max-w-3xl p-6 mx-auto mt-8 bg-blue-100 rounded-lg shadow-md">
-          <h2 className="mb-4 text-2xl font-bold text-center text-blue-800">
-            DAアルゴリズムを体験してみよう
-          </h2>
-          <p className="mb-6 text-center text-blue-700">
-            あなたの立場でシミュレーションを行い、単願制とDA方式の違いを体験してください。
-            わずか数分で、DAアルゴリズムのメリットを実感できます。
-          </p>
-          <div className="flex justify-center">
-            <Link href="/simulation" passHref>
-              <Button variant="primary" size="lg">
-                シミュレーションを開始
-              </Button>
-            </Link>
+        <div className="flex flex-col gap-8 mt-8">
+          <div className="max-w-3xl p-6 mx-auto bg-blue-100 rounded-lg shadow-md">
+            <h2 className="mb-4 text-2xl font-bold text-center text-blue-800">
+              DAアルゴリズムとは？
+            </h2>
+            <p className="mb-6 text-center text-blue-700">
+              受け入れ保留アルゴリズム（Deferred Acceptance Algorithm）の仕組みと
+              公立高校入試への応用について詳しく学びましょう。
+            </p>
+            <div className="flex justify-center">
+              <Link href="/about-da" passHref>
+                <Button variant="outline" size="lg">
+                  詳しく見る
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          <div className="max-w-3xl p-6 mx-auto bg-blue-100 rounded-lg shadow-md">
+            <h2 className="mb-4 text-2xl font-bold text-center text-blue-800">
+              DAアルゴリズムを体験してみよう
+            </h2>
+            <p className="mb-6 text-center text-blue-700">
+              あなたの立場でシミュレーションを行い、単願制とDA方式の違いを体験してください。
+              わずか数分で、DAアルゴリズムのメリットを実感できます。
+            </p>
+            <div className="flex justify-center">
+              <Link href="/simulation" passHref>
+                <Button variant="primary" size="lg">
+                  シミュレーションを開始
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
 
