@@ -1,101 +1,90 @@
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Button from '@/components/ui/Button';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <div className="container px-4 py-12 mx-auto">
+        <header className="mb-12 text-center">
+          <h1 className="mb-4 text-4xl font-bold text-blue-900">
+            公立高校入試をより公平に
+          </h1>
+          <p className="max-w-2xl mx-auto text-xl text-blue-700">
+            DAアルゴリズム（受け入れ保留アルゴリズム）を用いた併願制で、
+            より公平で効率的な高校入試を実現
+          </p>
+        </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="p-6 bg-white rounded-lg shadow-md">
+            <h2 className="mb-4 text-2xl font-bold text-gray-800">現在の単願制の問題点</h2>
+            <ul className="ml-5 space-y-3 text-gray-700 list-disc">
+              <li>
+                <strong>経済格差による不公平:</strong> 家庭の経済力に不安がある生徒は、
+                私立高校を選択肢に入れられないため、安全な公立高校を選ばざるを得ない
+              </li>
+              <li>
+                <strong>情報格差による不公平:</strong> 塾に行けない生徒は、
+                自分のレベルに合った高校を正確に把握できない
+              </li>
+              <li>
+                <strong>チャレンジの機会損失:</strong> 落ちるリスクを考えて、
+                本来の実力より低いレベルの高校を選ぶ生徒が多い
+              </li>
+            </ul>
+          </div>
+
+          <div className="p-6 bg-white rounded-lg shadow-md">
+            <h2 className="mb-4 text-2xl font-bold text-gray-800">DAアルゴリズムによる解決策</h2>
+            <ul className="ml-5 space-y-3 text-gray-700 list-disc">
+              <li>
+                <strong>志望校を正直に並べるだけ:</strong> 戦略的な出願を考える必要がなく、
+                純粋に行きたい高校を順番に並べればよい
+              </li>
+              <li>
+                <strong>公平な機会:</strong> 経済状況に関わらず、
+                全ての生徒が自分の実力に合った最良の高校に入学できる
+              </li>
+              <li>
+                <strong>効率的な配分:</strong> 複数合格による空席や繰り上げ合格の混乱がなく、
+                最適なマッチングが実現する
+              </li>
+              <li>
+                <strong>実績あるシステム:</strong> ニューヨークの公立高校入試で成功し、
+                ノーベル経済学賞の研究にも関連
+              </li>
+            </ul>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="max-w-3xl p-6 mx-auto mt-8 bg-blue-100 rounded-lg shadow-md">
+          <h2 className="mb-4 text-2xl font-bold text-center text-blue-800">
+            DAアルゴリズムを体験してみよう
+          </h2>
+          <p className="mb-6 text-center text-blue-700">
+            あなたの立場でシミュレーションを行い、単願制とDA方式の違いを体験してください。
+            わずか数分で、DAアルゴリズムのメリットを実感できます。
+          </p>
+          <div className="flex justify-center">
+            <Link href="/simulation" passHref>
+              <Button variant="primary" size="lg">
+                シミュレーションを開始
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        <footer className="mt-16 text-center text-gray-600">
+          <p className="mb-2">
+            このシミュレーションは、東京大学の小島武仁、野田俊也、慶応大学の中室牧子らが提唱する
+            「受け入れ保留アルゴリズム」(DA)方式に基づいています。
+          </p>
+          <p>
+            © 2025 公立高校入試改革プロジェクト
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }
