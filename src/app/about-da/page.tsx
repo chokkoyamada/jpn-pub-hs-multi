@@ -71,12 +71,12 @@ export default function AboutDAPage() {
               <li>
                 <strong>第1ラウンド:</strong> 各生徒は自分の第1志望校に出願します。
                 各学校は出願してきた生徒を成績順に並べ、定員内であれば全員を「仮合格」とします。
-                定員を超える場合は、成績上位から定員分だけを「仮合格」とし、残りは「不合格」とします。
+                定員を超える場合は、成績上位から定員分だけを「仮合格」とし、残りは「待機」とします。
               </li>
               <li>
-                <strong>第2ラウンド以降:</strong> 「不合格」となった生徒は、次の志望校に出願します。
+                <strong>第2ラウンド以降:</strong> 「待機」となった生徒は、次の志望校に出願します。
                 各学校は前ラウンドで「仮合格」とした生徒と新たに出願してきた生徒を合わせて成績順に並べ、定員内であれば全員を「仮合格」とします。定員を超える場合は、成績上位から定員分だけを「仮合格」とし、
-                残りは「不合格」とします。
+                残りは「待機」とします。
               </li>
               <li>
                 <strong>終了条件:</strong>{' '}
@@ -513,13 +513,13 @@ export default function AboutDAPage() {
                 )}
                 {currentStep === 2 && (
                   <div>
-                    <p className="font-semibold">仮合格と不合格:</p>
+                    <p className="font-semibold">仮合格と待機:</p>
                     <ul className="mt-2 ml-5 list-disc">
                       <li>各学校が定員に基づいて仮合格者を決定します</li>
-                      <li>東高校（定員1名）: 生徒Aが仮合格、生徒Bは不合格（成績で判断）</li>
+                      <li>東高校（定員1名）: 生徒Aが仮合格、生徒Bは待機（成績で判断）</li>
                       <li>西高校（定員1名）: 生徒Cが仮合格</li>
                       <li>南高校（定員2名）: 生徒Dが仮合格</li>
-                      <li>不合格となった生徒B → 次の志望校へ</li>
+                      <li>待機となった生徒B → 次の志望校へ</li>
                     </ul>
                   </div>
                 )}
@@ -527,7 +527,7 @@ export default function AboutDAPage() {
                   <div>
                     <p className="font-semibold">第2ラウンド:</p>
                     <ul className="mt-2 ml-5 list-disc">
-                      <li>不合格となった生徒が次の志望校に出願します</li>
+                      <li>待機となった生徒が次の志望校に出願します</li>
                       <li>生徒B → 南高校（第2志望）</li>
                       <li>東高校: 生徒Aが仮合格（変更なし）</li>
                       <li>西高校: 生徒Cが仮合格（変更なし）</li>
@@ -845,7 +845,7 @@ export default function AboutDAPage() {
                   <li>生徒B → 南高校（第2志望）</li>
                 </ul>
                 <p className="mt-2 text-sm text-yellow-700">
-                  ※生徒Bは東高校（第1志望）の定員の関係で合格できませんでした
+                  ※生徒Bは東高校（第1志望）の定員の関係で待機となり、第2志望の南高校に進みました
                 </p>
               </div>
             </div>
