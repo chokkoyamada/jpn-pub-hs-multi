@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: '公立高校入試シミュレーション - DAアルゴリズム',
+  title: 'DAアルゴリズムと公立高校併願制について学べるサイト',
   description:
     'DAアルゴリズム（受け入れ保留アルゴリズム）を用いた併願制のメリットを体験できるシミュレーション',
 };
