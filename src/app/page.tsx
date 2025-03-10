@@ -76,12 +76,8 @@ export default function HomePage() {
         </div>
 
         <footer className="mt-16 text-center text-gray-600">
-          <p className="mb-2">
-            このシミュレーションは、東京大学の小島武仁、野田俊也、慶応大学の中室牧子らが提唱する
-            「受け入れ保留アルゴリズム」(DA)方式に基づいています。
-          </p>
           <p>
-            © 2025 公立高校入試改革プロジェクト
+            © 2025 Naoyuki Yamada <a href="https://www.kirishikistudios.com/">Kirishiki Studios</a>
           </p>
         </footer>
       </div>

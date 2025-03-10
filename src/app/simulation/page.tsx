@@ -34,7 +34,7 @@ export default function SimulationPage() {
   };
 
   return (
-    <div className="container px-4 py-8 mx-auto">
+    <div className="container px-4 py-8 mx-auto bg-white min-h-screen">
       <h1 className="mb-6 text-3xl font-bold text-center text-gray-900">
         公立高校入試シミュレーション
       </h1>

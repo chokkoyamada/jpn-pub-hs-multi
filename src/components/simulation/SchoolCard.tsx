@@ -20,13 +20,29 @@ const SchoolCard: React.FC<SchoolCardProps> = ({
   // Determine difficulty level text and color
   const getDifficultyInfo = (difficulty: number) => {
     if (difficulty >= 80) {
-      return { text: '難関', color: 'text-red-600' };
+      return {
+        text: '偏差値75以上・最難関',
+        textColor: 'text-red-700',
+        bgColor: 'bg-red-100'
+      };
     } else if (difficulty >= 60) {
-      return { text: '中堅上位', color: 'text-orange-500' };
+      return {
+        text: '偏差値65-74・難関',
+        textColor: 'text-orange-700',
+        bgColor: 'bg-orange-100'
+      };
     } else if (difficulty >= 40) {
-      return { text: '中堅', color: 'text-yellow-600' };
+      return {
+        text: '偏差値55-64・中堅',
+        textColor: 'text-yellow-700',
+        bgColor: 'bg-yellow-100'
+      };
     } else {
-      return { text: '標準', color: 'text-green-600' };
+      return {
+        text: '偏差値54以下・標準',
+        textColor: 'text-green-700',
+        bgColor: 'bg-green-100'
+      };
     }
   };
 
@@ -56,10 +72,10 @@ const SchoolCard: React.FC<SchoolCardProps> = ({
         )}
         <div className="flex-1">
           <h3 className="text-lg font-semibold">{school.name}</h3>
-          <div className="flex items-center mt-1 space-x-2 text-sm">
-            <span className={difficultyInfo.color}>{difficultyInfo.text}</span>
-            <span className="text-gray-500">|</span>
-            <span className="text-gray-600">{school.specialization}</span>
+          <div className="flex items-center mt-1 text-sm">
+            <span className={`px-2 py-0.5 rounded-full ${difficultyInfo.textColor} ${difficultyInfo.bgColor} font-medium`}>
+              {difficultyInfo.text}
+            </span>
           </div>
         </div>
       </div>

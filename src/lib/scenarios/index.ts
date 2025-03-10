@@ -81,17 +81,17 @@ export const scenarios: Scenario[] = [
     },
     daResult: {
       assignedSchoolId: 3, // Gets into a better school
-      preferenceRank: 2
+      preferenceRank: 3
     }
   },
 
-  // Scenario 3: Lower-performing student with specific interests
+  // Scenario 3: Student with location/commute preferences
   {
-    id: 'low-score-specific-interest',
+    id: 'location-preference',
     studentProfile: {
       id: 'profile3',
-      label: '特定分野に強み・全体的には成績中程度',
-      description: '理系科目が得意で、その分野に特化した高校に行きたいと考えています。',
+      label: '通学距離重視・成績中程度',
+      description: '自宅から近い高校や通学しやすい高校を優先したいと考えています。',
       economicStatus: 'medium',
       scorePercentile: 55
     },
@@ -102,8 +102,8 @@ export const scenarios: Scenario[] = [
       fallbackPrivate: false
     },
     daResult: {
-      assignedSchoolId: 2, // Gets into the specialized school they want
-      preferenceRank: 1
+      assignedSchoolId: 3, // Gets into a school with better location
+      preferenceRank: 3
     }
   },
 

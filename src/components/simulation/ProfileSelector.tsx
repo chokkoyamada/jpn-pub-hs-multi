@@ -33,11 +33,16 @@ const ProfileSelector: React.FC<ProfileSelectorProps> = ({ onSelect }) => {
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <span className="mr-2 text-sm text-gray-500">成績:</span>
-                <div className="w-24 h-3 bg-gray-200 rounded-full">
-                  <div
-                    className="h-3 bg-blue-600 rounded-full"
-                    style={{ width: `${scenario.studentProfile.scorePercentile}%` }}
-                  />
+                <div className="flex">
+                  {Array.from({ length: 5 }).map((_, i) => {
+                    // Convert percentile to stars (0-5)
+                    const stars = Math.round(scenario.studentProfile.scorePercentile / 20);
+                    return (
+                      <span key={i} className={`text-xl ${i < stars ? 'text-yellow-500' : 'text-gray-300'}`}>
+                        ★
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
 
