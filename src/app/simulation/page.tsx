@@ -62,9 +62,7 @@ export default function SimulationPage() {
               別のプロフィールで試す
             </Button>
             <Link href="/about-da" passHref>
-              <Button variant="secondary">
-                DAアルゴリズムについて学ぶ
-              </Button>
+              <Button variant="secondary">DAアルゴリズムについて学ぶ</Button>
             </Link>
             <Button variant="primary" onClick={handleGoHome}>
               トップページに戻る

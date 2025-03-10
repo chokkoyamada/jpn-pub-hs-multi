@@ -17,7 +17,7 @@ const ProfileSelector: React.FC<ProfileSelectorProps> = ({ onSelect }) => {
       </p>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {scenarios.map((scenario) => (
+        {scenarios.map(scenario => (
           <Card
             key={scenario.id}
             className="transition-all hover:shadow-lg"
@@ -26,9 +26,7 @@ const ProfileSelector: React.FC<ProfileSelectorProps> = ({ onSelect }) => {
             <h3 className="mb-2 text-lg font-semibold text-gray-800">
               {scenario.studentProfile.label}
             </h3>
-            <p className="mb-4 text-gray-600">
-              {scenario.studentProfile.description}
-            </p>
+            <p className="mb-4 text-gray-600">{scenario.studentProfile.description}</p>
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
@@ -38,7 +36,10 @@ const ProfileSelector: React.FC<ProfileSelectorProps> = ({ onSelect }) => {
                     // Convert percentile to stars (0-5)
                     const stars = Math.round(scenario.studentProfile.scorePercentile / 20);
                     return (
-                      <span key={i} className={`text-xl ${i < stars ? 'text-yellow-500' : 'text-gray-300'}`}>
+                      <span
+                        key={i}
+                        className={`text-xl ${i < stars ? 'text-yellow-500' : 'text-gray-300'}`}
+                      >
                         ★
                       </span>
                     );
@@ -48,23 +49,25 @@ const ProfileSelector: React.FC<ProfileSelectorProps> = ({ onSelect }) => {
 
               <div className="text-sm">
                 {scenario.studentProfile.economicStatus === 'low' && (
-                  <span className="px-2 py-1 text-white bg-orange-500 rounded-full">経済的制約あり</span>
+                  <span className="px-2 py-1 text-white bg-orange-500 rounded-full">
+                    経済的制約あり
+                  </span>
                 )}
                 {scenario.studentProfile.economicStatus === 'medium' && (
-                  <span className="px-2 py-1 text-white bg-blue-500 rounded-full">経済的に余裕あり</span>
+                  <span className="px-2 py-1 text-white bg-blue-500 rounded-full">
+                    経済的に余裕あり
+                  </span>
                 )}
                 {scenario.studentProfile.economicStatus === 'high' && (
-                  <span className="px-2 py-1 text-white bg-green-500 rounded-full">経済的に十分</span>
+                  <span className="px-2 py-1 text-white bg-green-500 rounded-full">
+                    経済的に十分
+                  </span>
                 )}
               </div>
             </div>
 
             <div className="mt-4 text-right">
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => onSelect(scenario.id)}
-              >
+              <Button variant="primary" size="sm" onClick={() => onSelect(scenario.id)}>
                 このプロフィールで試す
               </Button>
             </div>

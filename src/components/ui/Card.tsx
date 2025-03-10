@@ -7,12 +7,7 @@ interface CardProps {
   onClick?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({
-  children,
-  className = '',
-  variant = 'default',
-  onClick,
-}) => {
+const Card: React.FC<CardProps> = ({ children, className = '', variant = 'default', onClick }) => {
   const baseStyles = 'rounded-lg shadow-md p-4';
 
   const variantStyles = {
@@ -23,10 +18,7 @@ const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <div
-      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
-      onClick={onClick}
-    >
+    <div className={`${baseStyles} ${variantStyles[variant]} ${className}`} onClick={onClick}>
       {children}
     </div>
   );

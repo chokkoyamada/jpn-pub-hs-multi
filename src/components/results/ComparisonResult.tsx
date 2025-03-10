@@ -46,18 +46,17 @@ const ComparisonResult: React.FC<ComparisonResultProps> = ({ scenario }) => {
 
           <div className="mb-4">
             <h4 className="mb-2 font-semibold text-gray-700">あなたの選択</h4>
-            {singleAppSchool && (
-              <SchoolCard
-                school={singleAppSchool}
-                isSelected={true}
-              />
-            )}
+            {singleAppSchool && <SchoolCard school={singleAppSchool} isSelected={true} />}
           </div>
 
           <div>
             <h4 className="mb-2 font-semibold text-gray-700">結果</h4>
-            <div className={`p-3 rounded-md ${!singleApplicationResult.success ? 'bg-red-100' : 'bg-green-100'}`}>
-              <p className={`font-medium ${!singleApplicationResult.success ? 'text-red-700' : 'text-green-700'}`}>
+            <div
+              className={`p-3 rounded-md ${!singleApplicationResult.success ? 'bg-red-100' : 'bg-green-100'}`}
+            >
+              <p
+                className={`font-medium ${!singleApplicationResult.success ? 'text-red-700' : 'text-green-700'}`}
+              >
                 {singleAppOutcome}
               </p>
             </div>

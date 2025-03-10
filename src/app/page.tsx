@@ -7,9 +7,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <div className="container px-4 py-12 mx-auto">
         <header className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-blue-900">
-            公立高校入試をより公平に
-          </h1>
+          <h1 className="mb-4 text-4xl font-bold text-blue-900">公立高校入試をより公平に</h1>
           <p className="max-w-2xl mx-auto text-xl text-blue-700">
             DAアルゴリズム（受け入れ保留アルゴリズム）を用いた併願制で、
             より公平で効率的な高校入試を実現
@@ -96,7 +94,8 @@ export default function HomePage() {
 
         <footer className="mt-16 text-center text-gray-600">
           <p>
-            © 2025 Naoyuki Yamada <a href="https://www.kirishikistudios.com/">Kirishiki Studios</a>
+            © 2025{' '}
+            <a href="https://www.kirishikistudios.com/">Naoyuki Yamada(Kirishiki Studios)</a>
           </p>
         </footer>
       </div>
