@@ -96,6 +96,15 @@ export default function HomePage() {
           <p>
             © 2025{' '}
             <a href="https://www.kirishikistudios.com/">Naoyuki Yamada(Kirishiki Studios)</a>
+            {' • '}
+            <a
+              href="https://github.com/chokkoyamada/jpn-pub-hs-multi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-900"
+            >
+              GitHub
+            </a>
           </p>
         </footer>
       </div>
