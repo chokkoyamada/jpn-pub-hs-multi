@@ -18,9 +18,10 @@ const OutcomeSummary: React.FC<OutcomeSummaryProps> = ({ targetStudent, schools,
 
   return (
     <Card accent="blue" className="space-y-3">
-      <h2 className="font-heading text-xl font-bold text-slate-900">あなた向け結果サマリー</h2>
+      <h2 className="font-heading text-xl font-bold text-slate-900">この点数だったら（前提）</h2>
       <p className="text-sm text-slate-700">
-        {targetStudent.name}の得点は <strong>{targetStudent.score}</strong> 点です。DAでは順位を正直に出しても不利になりません。
+        ここでは {targetStudent.name} の得点を <strong>{targetStudent.score}</strong>{' '}
+        点と仮定して、単願制とDA方式の結果を比較します。
       </p>
       <div className="flex flex-wrap gap-2">
         {gainedSafety && <ReasonBadge tone="success" label="DAで全落ちリスクを回避" />}

@@ -107,6 +107,13 @@ export default function SimulationPage() {
               </Button>
             </div>
 
+            <OutcomeSummary
+              targetStudent={targetStudent}
+              schools={preparedScenario.schools}
+              single={result.compare.single}
+              da={result.compare.da}
+            />
+
             <SystemComparePanel
               targetStudent={targetStudent}
               schools={preparedScenario.schools}
@@ -120,13 +127,6 @@ export default function SimulationPage() {
               schools={preparedScenario.schools}
               events={result.da.events}
               focusStudentId={preparedScenario.targetStudentId}
-            />
-
-            <OutcomeSummary
-              targetStudent={targetStudent}
-              schools={preparedScenario.schools}
-              single={result.compare.single}
-              da={result.compare.da}
             />
           </div>
         )}
