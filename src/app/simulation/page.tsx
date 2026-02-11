@@ -3,7 +3,6 @@
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import ScenarioPicker from '@/components/simulation/ScenarioPicker';
-import PreferenceEditor from '@/components/simulation/PreferenceEditor';
 import DAPlayback from '@/components/simulation/DAPlayback';
 import OutcomeSummary from '@/components/simulation/OutcomeSummary';
 import SystemComparePanel from '@/components/simulation/SystemComparePanel';
@@ -11,18 +10,7 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { compareSystems, getSchoolName } from '@/lib/da/engine';
 import { getScenarioById, simulationScenarios } from '@/lib/da/mockData';
-import { SchoolId, StudentScenario } from '@/lib/da/types';
-
-const movePreference = (prefs: SchoolId[], index: number, direction: 'up' | 'down'): SchoolId[] => {
-  const next = [...prefs];
-  if (direction === 'up' && index > 0) {
-    [next[index - 1], next[index]] = [next[index], next[index - 1]];
-  }
-  if (direction === 'down' && index < next.length - 1) {
-    [next[index + 1], next[index]] = [next[index], next[index + 1]];
-  }
-  return next;
-};
+import { StudentScenario } from '@/lib/da/types';
 
 export default function SimulationPage() {
   const [selectedScenarioId, setSelectedScenarioId] = useState<string | null>(null);
@@ -31,46 +19,20 @@ export default function SimulationPage() {
     [selectedScenarioId],
   );
 
-  const initialPreferences = useMemo(() => {
-    if (!selectedScenario) {
-      return [];
-    }
-    const target = selectedScenario.students.find(s => s.id === selectedScenario.targetStudentId);
-    return target ? [...target.preferences] : [];
-  }, [selectedScenario]);
-
-  const [preferences, setPreferences] = useState<SchoolId[]>([]);
-
   const handleSelectScenario = (scenarioId: string) => {
     const scenario = getScenarioById(scenarioId);
     if (!scenario) {
       return;
     }
-    const target = scenario.students.find(s => s.id === scenario.targetStudentId);
     setSelectedScenarioId(scenarioId);
-    setPreferences(target ? [...target.preferences] : []);
   };
 
   const preparedScenario = useMemo((): StudentScenario | null => {
     if (!selectedScenario) {
       return null;
     }
-
-    const students = selectedScenario.students.map(student => {
-      if (student.id !== selectedScenario.targetStudentId) {
-        return student;
-      }
-      return {
-        ...student,
-        preferences,
-      };
-    });
-
-    return {
-      ...selectedScenario,
-      students,
-    };
-  }, [preferences, selectedScenario]);
+    return selectedScenario;
+  }, [selectedScenario]);
 
   const result = useMemo(() => {
     if (!preparedScenario) {
@@ -112,7 +74,7 @@ export default function SimulationPage() {
         <header className="space-y-2 text-center">
           <h1 className="font-heading text-3xl font-bold text-slate-900">公立高校入試シミュレーション</h1>
           <p className="mx-auto max-w-3xl text-sm text-slate-600 md:text-base">
-            単願制とDA方式を同じ条件で比較します。志望順位を動かしても、DAでは「正直に並べる」こと自体が不利になりません。
+            単願制とDA方式を同じ条件で比較します。ケースを選ぶだけで、DAが「挑戦機会」と「安全網」をどう両立するか確認できます。
           </p>
         </header>
 
@@ -145,13 +107,6 @@ export default function SimulationPage() {
               </Button>
             </div>
 
-            <PreferenceEditor
-              schools={preparedScenario.schools}
-              preferences={preferences}
-              onMove={(index, direction) => setPreferences(prev => movePreference(prev, index, direction))}
-              onReset={() => setPreferences(initialPreferences)}
-            />
-
             <SystemComparePanel
               targetStudent={targetStudent}
               schools={preparedScenario.schools}
@@ -160,7 +115,7 @@ export default function SimulationPage() {
             />
 
             <DAPlayback
-              key={`${preparedScenario.id}-${preferences.join('-')}`}
+              key={preparedScenario.id}
               students={preparedScenario.students}
               schools={preparedScenario.schools}
               events={result.da.events}

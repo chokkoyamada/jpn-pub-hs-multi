@@ -14,7 +14,7 @@ const ScenarioPicker: React.FC<ScenarioPickerProps> = ({ scenarios, onSelect }) 
       <div className="space-y-2">
         <h2 className="font-heading text-2xl font-bold text-slate-900">あなたに近いケースを選択</h2>
         <p className="text-sm text-slate-600">
-          まずはケースを選び、次に志望順位を動かしながら単願制とDA方式を比較してください。
+          まずはケースを選び、単願制とDA方式の違いをそのまま比較してください。
         </p>
       </div>
 
