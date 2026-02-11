@@ -23,6 +23,9 @@ const ScenarioPicker: React.FC<ScenarioPickerProps> = ({ scenarios, onSelect }) 
           <Card key={scenario.id} className="space-y-3 border border-slate-200" accent="blue">
             <h3 className="text-base font-semibold text-slate-900">{scenario.label}</h3>
             <p className="text-sm text-slate-600">{scenario.description}</p>
+            <p className="rounded-md bg-sky-50 px-3 py-2 text-xs text-sky-800">
+              想定差分: {scenario.expectedDifference}
+            </p>
             <Button variant="primary" size="sm" onClick={() => onSelect(scenario.id)}>
               このケースで始める
             </Button>

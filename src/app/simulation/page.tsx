@@ -9,7 +9,7 @@ import OutcomeSummary from '@/components/simulation/OutcomeSummary';
 import SystemComparePanel from '@/components/simulation/SystemComparePanel';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
-import { compareSystems } from '@/lib/da/engine';
+import { compareSystems, getSchoolName } from '@/lib/da/engine';
 import { getScenarioById, simulationScenarios } from '@/lib/da/mockData';
 import { SchoolId, StudentScenario } from '@/lib/da/types';
 
@@ -66,15 +66,9 @@ export default function SimulationPage() {
       };
     });
 
-    const singleChoices = {
-      ...selectedScenario.singleChoices,
-      [selectedScenario.targetStudentId]: preferences[0],
-    };
-
     return {
       ...selectedScenario,
       students,
-      singleChoices,
     };
   }, [preferences, selectedScenario]);
 
@@ -134,6 +128,17 @@ export default function SimulationPage() {
               <div>
                 <p className="text-sm text-slate-500">選択中のケース</p>
                 <p className="font-semibold text-slate-900">{preparedScenario.label}</p>
+                <p className="mt-1 text-xs text-slate-600">{preparedScenario.expectedDifference}</p>
+                <p className="mt-1 text-xs text-slate-600">
+                  単願の前提: あなたは
+                  {' '}
+                  {getSchoolName(
+                    preparedScenario.schools,
+                    preparedScenario.singleChoices[preparedScenario.targetStudentId],
+                  )}
+                  {' '}
+                  のみ出願
+                </p>
               </div>
               <Button variant="outline" onClick={() => setSelectedScenarioId(null)}>
                 ケースを選び直す

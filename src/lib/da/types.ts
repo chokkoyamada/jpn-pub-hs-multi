@@ -59,6 +59,7 @@ export interface StudentScenario {
   id: string;
   label: string;
   description: string;
+  expectedDifference: string;
   targetStudentId: StudentId;
   schools: DASchool[];
   students: DAStudent[];
