@@ -25,11 +25,28 @@ export default function AboutDAPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-slate-50">
+      <nav className="border-b border-slate-200 bg-white">
+        <div className="container px-4 mx-auto flex items-center justify-between h-14">
+          <Link href="/" className="font-heading text-sm md:text-lg font-bold text-slate-900 shrink-0">
+            <span className="hidden md:inline">DA入試シミュレーション</span>
+            <span className="md:hidden">DA入試</span>
+          </Link>
+          <div className="flex gap-3 md:gap-4 text-xs md:text-sm">
+            <Link href="/about-da" className="text-sky-700 font-semibold whitespace-nowrap">
+              DAアルゴリズムとは
+            </Link>
+            <Link href="/simulation" className="text-slate-600 hover:text-sky-700 transition-colors whitespace-nowrap">
+              シミュレーション
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       <div className="container px-4 py-12 mx-auto">
         <header className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-blue-900">DAアルゴリズムとは？</h1>
-          <p className="max-w-2xl mx-auto text-xl text-blue-700">
+          <h1 className="mb-4 text-4xl font-bold text-slate-900">DAアルゴリズムとは？</h1>
+          <p className="max-w-2xl mx-auto text-xl text-slate-600">
             受け入れ保留アルゴリズム（Deferred Acceptance
             Algorithm）の仕組みと公立高校入試への応用について
           </p>
@@ -37,11 +54,11 @@ export default function AboutDAPage() {
 
         {/* Basic Explanation Section */}
         <section className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          <h2 className="mb-4 text-2xl font-bold text-gray-800">DAアルゴリズムの基本概念</h2>
-          <p className="mb-4 text-gray-700">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">DAアルゴリズムの基本概念</h2>
+          <p className="mb-4 text-slate-700">
             DAアルゴリズム（受け入れ保留アルゴリズム）は、1962年にデビッド・ゲール氏とロイド・シャプレー氏によって考案されたマッチング理論のアルゴリズムです。このアルゴリズムは2012年にノーベル経済学賞を受賞し、世界中の様々な割り当て問題（学校選択、研修医の病院配属など）に応用されています。
           </p>
-<div className="mb-4 text-gray-700">
+<div className="mb-4 text-slate-700">
   <p className="mb-2">DAアルゴリズムの最大の特徴は、以下の3つです：</p>
   <ul className="ml-5 space-y-2 list-disc">
     <li>
@@ -55,9 +72,9 @@ export default function AboutDAPage() {
     </li>
   </ul>
 </div>
-          <div className="p-4 mt-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <h3 className="mb-2 text-lg font-semibold text-blue-800">単願制との主な違い</h3>
-            <ul className="ml-5 space-y-2 text-blue-700 list-disc">
+          <div className="p-4 mt-4 bg-sky-50 border border-sky-200 rounded-lg">
+            <h3 className="mb-2 text-lg font-semibold text-sky-800">単願制との主な違い</h3>
+            <ul className="ml-5 space-y-2 text-slate-600 list-disc">
               <li>複数の学校に志望順位をつけて出願できる</li>
               <li>「受かりそうな学校」ではなく「行きたい学校」を選べる</li>
               <li>経済的背景に関わらず、全ての生徒が公平に挑戦できる</li>
@@ -68,11 +85,11 @@ export default function AboutDAPage() {
 
         {/* Step by Step Explanation */}
         <section className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          <h2 className="mb-6 text-2xl font-bold text-gray-800">アルゴリズムの動作プロセス</h2>
+          <h2 className="mb-6 text-2xl font-bold text-slate-900">アルゴリズムの動作プロセス</h2>
 
           <div className="mb-8">
-            <h3 className="mb-4 text-xl font-semibold text-gray-700">DAアルゴリズムのステップ</h3>
-            <ol className="ml-5 space-y-4 text-gray-700 list-decimal">
+            <h3 className="mb-4 text-xl font-semibold text-slate-700">DAアルゴリズムのステップ</h3>
+            <ol className="ml-5 space-y-4 text-slate-700 list-decimal">
               <li>
                 <strong>準備段階:</strong> 各生徒は志望校を順位付けしたリストを提出します。
                 各学校は定員と合格最低点（または選抜基準）を設定します。
@@ -95,14 +112,14 @@ export default function AboutDAPage() {
           </div>
 
           {/* Visual Explanation with SVG */}
-          <div className="p-4 mb-6 bg-gray-50 border border-gray-200 rounded-lg">
-            <h3 className="mb-4 text-lg font-semibold text-center text-gray-800">視覚的な説明</h3>
+          <div className="p-4 mb-6 bg-slate-50 border border-slate-200 rounded-lg">
+            <h3 className="mb-4 text-lg font-semibold text-center text-slate-900">視覚的な説明</h3>
             <div className="flex justify-center">
               <svg
                 width="600"
                 height="300"
                 viewBox="0 0 600 300"
-                className="border border-gray-300 rounded"
+                className="border border-slate-300 rounded"
               >
                 {/* Students */}
                 <g>
@@ -494,7 +511,7 @@ export default function AboutDAPage() {
               </svg>
             </div>
             <div className="mt-4 text-center">
-              <div className="mb-4 text-gray-700">
+              <div className="mb-4 text-slate-700">
                 {currentStep === 0 && (
                   <div>
                     <p className="font-semibold">初期状態:</p>
@@ -562,25 +579,25 @@ export default function AboutDAPage() {
                 <button
                   onClick={handlePrevStep}
                   disabled={currentStep === 0}
-                  className={`px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md ${
-                    currentStep === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+                  className={`px-4 py-2 text-sm font-medium text-white bg-sky-700 rounded-md ${
+                    currentStep === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-sky-800'
                   }`}
                 >
                   前へ
                 </button>
                 <button
                   onClick={handleReset}
-                  className="px-4 py-2 text-sm font-medium text-blue-600 bg-white border border-blue-600 rounded-md hover:bg-blue-50"
+                  className="px-4 py-2 text-sm font-medium text-sky-600 bg-white border border-sky-700 rounded-md hover:bg-sky-50"
                 >
                   リセット
                 </button>
                 <button
                   onClick={handleNextStep}
                   disabled={currentStep === totalSteps - 1}
-                  className={`px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md ${
+                  className={`px-4 py-2 text-sm font-medium text-white bg-sky-700 rounded-md ${
                     currentStep === totalSteps - 1
                       ? 'opacity-50 cursor-not-allowed'
-                      : 'hover:bg-blue-700'
+                      : 'hover:bg-sky-800'
                   }`}
                 >
                   次へ
@@ -592,20 +609,20 @@ export default function AboutDAPage() {
 
         {/* Final Results Visualization Section */}
         <section className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          <h2 className="mb-4 text-2xl font-bold text-gray-800">最終結果の視覚化</h2>
-          <p className="mb-6 text-gray-700">
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">最終結果の視覚化</h2>
+          <p className="mb-6 text-slate-700">
             DAアルゴリズムの実行後、各生徒がどの高校に最終的に合格したかを視覚的に表現したものです。
             この結果は、各生徒の志望順位と各学校の定員を考慮した最適なマッチングとなっています。
           </p>
 
-          <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-            <h3 className="mb-4 text-lg font-semibold text-center text-gray-800">最終合格結果</h3>
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+            <h3 className="mb-4 text-lg font-semibold text-center text-slate-900">最終合格結果</h3>
             <div className="flex justify-center">
               <svg
                 width="600"
                 height="300"
                 viewBox="0 0 600 300"
-                className="border border-gray-300 rounded"
+                className="border border-slate-300 rounded"
               >
                 {/* Students */}
                 <g>
@@ -846,36 +863,36 @@ export default function AboutDAPage() {
                   <li>生徒D → 南高校（第1志望）</li>
                 </ul>
               </div>
-              <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <h4 className="mb-2 text-md font-semibold text-yellow-800">
+              <div className="p-4 bg-sky-50 border border-sky-200 rounded-lg">
+                <h4 className="mb-2 text-md font-semibold text-sky-800">
                   第2志望以下に合格した生徒
                 </h4>
-                <ul className="ml-5 space-y-1 list-disc text-yellow-700">
+                <ul className="ml-5 space-y-1 list-disc text-sky-700">
                   <li>生徒B → 南高校（第2志望）</li>
                 </ul>
-                <p className="mt-2 text-sm text-yellow-700">
+                <p className="mt-2 text-sm text-sky-700">
                   ※生徒Bは東高校（第1志望）の定員の関係で待機となり、第2志望の南高校に進みました
                 </p>
               </div>
             </div>
-            <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-              <h4 className="mb-2 text-md font-semibold text-blue-800">各高校の合格者</h4>
+            <div className="mt-6 p-4 bg-sky-50 border border-sky-200 rounded-lg">
+              <h4 className="mb-2 text-md font-semibold text-sky-800">各高校の合格者</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="p-2 bg-white border border-blue-100 rounded">
-                  <p className="font-medium text-blue-800">東高校（定員1名）</p>
-                  <ul className="ml-5 list-disc text-blue-700">
+                <div className="p-2 bg-white border border-sky-100 rounded">
+                  <p className="font-medium text-sky-800">東高校（定員1名）</p>
+                  <ul className="ml-5 list-disc text-slate-600">
                     <li>生徒A</li>
                   </ul>
                 </div>
-                <div className="p-2 bg-white border border-blue-100 rounded">
-                  <p className="font-medium text-blue-800">西高校（定員1名）</p>
-                  <ul className="ml-5 list-disc text-blue-700">
+                <div className="p-2 bg-white border border-sky-100 rounded">
+                  <p className="font-medium text-sky-800">西高校（定員1名）</p>
+                  <ul className="ml-5 list-disc text-slate-600">
                     <li>生徒C</li>
                   </ul>
                 </div>
-                <div className="p-2 bg-white border border-blue-100 rounded">
-                  <p className="font-medium text-blue-800">南高校（定員2名）</p>
-                  <ul className="ml-5 list-disc text-blue-700">
+                <div className="p-2 bg-white border border-sky-100 rounded">
+                  <p className="font-medium text-sky-800">南高校（定員2名）</p>
+                  <ul className="ml-5 list-disc text-slate-600">
                     <li>生徒B</li>
                     <li>生徒D</li>
                   </ul>
@@ -887,7 +904,7 @@ export default function AboutDAPage() {
 
         {/* Benefits Section */}
         <section className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          <h2 className="mb-4 text-2xl font-bold text-gray-800">DAアルゴリズムのメリット</h2>
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">DAアルゴリズムのメリット</h2>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="p-4 border border-green-200 rounded-lg bg-green-50">
@@ -897,23 +914,23 @@ export default function AboutDAPage() {
               </p>
             </div>
 
-            <div className="p-4 border border-blue-200 rounded-lg bg-blue-50">
-              <h3 className="mb-2 text-lg font-semibold text-blue-800">戦略的操作の排除</h3>
-              <p className="text-blue-700">
+            <div className="p-4 border border-sky-200 rounded-lg bg-sky-50">
+              <h3 className="mb-2 text-lg font-semibold text-sky-800">戦略的操作の排除</h3>
+              <p className="text-slate-600">
                 生徒は「受かりそうな学校」ではなく「行きたい学校」を正直に順位付けするのが最適な戦略となります。複雑な受験戦略を考える必要がなくなり、本来の志望校に挑戦する機会が増えます。
               </p>
             </div>
 
-            <div className="p-4 border border-purple-200 rounded-lg bg-purple-50">
-              <h3 className="mb-2 text-lg font-semibold text-purple-800">効率的なマッチング</h3>
-              <p className="text-purple-700">
+            <div className="p-4 border border-sky-200 rounded-lg bg-sky-50">
+              <h3 className="mb-2 text-lg font-semibold text-sky-800">効率的なマッチング</h3>
+              <p className="text-sky-700">
                 複数合格による空席や繰り上げ合格の混乱がなくなり、最適なマッチングが実現します。学校側も定員を効率的に埋めることができ、行政コストの削減にもつながります。
               </p>
             </div>
 
-            <div className="p-4 border border-orange-200 rounded-lg bg-orange-50">
-              <h3 className="mb-2 text-lg font-semibold text-orange-800">心理的負担の軽減</h3>
-              <p className="text-orange-700">
+            <div className="p-4 border border-slate-200 rounded-lg bg-slate-50">
+              <h3 className="mb-2 text-lg font-semibold text-slate-800">心理的負担の軽減</h3>
+              <p className="text-slate-700">
                 「落ちたらどうしよう」という不安を減らし、生徒と保護者の心理的負担を軽減します。志望校の合格最低点に達していれば、必ずその学校に入れることが保証されるため、安心して受験に臨むことができます。
               </p>
             </div>
@@ -922,44 +939,44 @@ export default function AboutDAPage() {
 
         {/* FAQ Section */}
         <section className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          <h2 className="mb-6 text-2xl font-bold text-gray-800">よくある質問</h2>
+          <h2 className="mb-6 text-2xl font-bold text-slate-900">よくある質問</h2>
 
           <div className="space-y-4">
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h3 className="mb-2 text-lg font-semibold text-gray-800">
+            <div className="p-4 border border-slate-200 rounded-lg">
+              <h3 className="mb-2 text-lg font-semibold text-slate-900">
                 Q: DAアルゴリズムは本当に公平なのですか？
               </h3>
-              <p className="text-gray-700">
+              <p className="text-slate-700">
                 A:
                 はい、DAアルゴリズムは数学的に証明された公平性を持っています。全ての生徒が自分の真の志望順位を申告することが最適な戦略となり、また全ての生徒が自分より低い順位の学校に入学することはありません。
               </p>
             </div>
 
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h3 className="mb-2 text-lg font-semibold text-gray-800">
+            <div className="p-4 border border-slate-200 rounded-lg">
+              <h3 className="mb-2 text-lg font-semibold text-slate-900">
                 Q: 導入にはどのようなコストがかかりますか？
               </h3>
-              <p className="text-gray-700">
+              <p className="text-slate-700">
                 A:
                 主なコストはシステム開発費用です。既存の入試システムをDAアルゴリズムに対応させるためのシステム改修が必要になりますが、長期的には繰り上げ合格などの手続きが不要になるため、行政コストの削減につながります。
               </p>
             </div>
 
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h3 className="mb-2 text-lg font-semibold text-gray-800">
+            <div className="p-4 border border-slate-200 rounded-lg">
+              <h3 className="mb-2 text-lg font-semibold text-slate-900">
                 Q: 実際に導入している地域はありますか？
               </h3>
-              <p className="text-gray-700">
+              <p className="text-slate-700">
                 A:
                 海外ではニューヨーク市やボストン市の公立高校入試、全米の研修医マッチングシステムなどで導入されています。日本国内では一部の私立大学のAO入試などで類似のシステムが採用されていますが、公立高校入試での本格的な導入はまだ進んでいません。
               </p>
             </div>
 
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h3 className="mb-2 text-lg font-semibold text-gray-800">
+            <div className="p-4 border border-slate-200 rounded-lg">
+              <h3 className="mb-2 text-lg font-semibold text-slate-900">
                 Q: 志望校を何校まで書けるのですか？
               </h3>
-              <p className="text-gray-700">
+              <p className="text-slate-700">
                 A:
                 理論上は無制限ですが、実際の運用では行政側が上限を設定することが多いです。例えばニューヨーク市では最大12校まで志望校を書くことができます。日本での導入を考える場合、各都道府県内の公立高校数や行政コストを考慮して適切な上限を設定することになるでしょう。
               </p>

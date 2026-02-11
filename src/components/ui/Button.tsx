@@ -20,13 +20,15 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
 }) => {
   const baseStyles =
-    'rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+    'rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-[0.98]';
 
   const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
+    primary:
+      'bg-sky-700 text-white hover:bg-sky-800 focus:ring-sky-500 shadow-sm hover:shadow-md',
+    secondary:
+      'bg-slate-200 text-slate-900 hover:bg-slate-300 focus:ring-slate-400 shadow-sm hover:shadow-md',
     outline:
-      'border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 focus:ring-gray-500',
+      'border border-slate-300 bg-transparent text-slate-700 hover:bg-slate-50 hover:border-slate-400 focus:ring-slate-400',
   };
 
   const sizeStyles = {

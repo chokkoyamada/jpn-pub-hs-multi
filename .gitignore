@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local agent/tooling
+.claude/
+.codex/
+.playwright-mcp/
+
+# local screenshots
+after-*.png
+current-*.png

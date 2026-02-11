@@ -1,21 +1,29 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #020617;
+  --color-primary: #0f172a;
+  --color-secondary: #334155;
+  --color-accent: #0369a1;
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-noto-sans-jp), 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo,
+    sans-serif;
+  --font-serif: var(--font-noto-serif-jp), 'Hiragino Mincho ProN', 'Yu Mincho', serif;
 }
-
-/* Removed dark mode media query to ensure consistent appearance */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.font-heading {
+  font-family: var(--font-serif);
 }
