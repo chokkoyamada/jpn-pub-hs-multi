@@ -13,6 +13,13 @@ interface DAPlaybackProps {
   focusStudentId: StudentId;
 }
 
+const shortLabel = (student: DAStudent): string => {
+  if (student.id === 'you') {
+    return 'Y';
+  }
+  return student.name.replace('受験生', '').charAt(0);
+};
+
 const DAPlayback: React.FC<DAPlaybackProps> = ({ students, schools, events, focusStudentId }) => {
   const [eventIndex, setEventIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -86,6 +93,22 @@ const DAPlayback: React.FC<DAPlaybackProps> = ({ students, schools, events, focu
 
     return holdMap;
   }, [eventIndex, events, schools]);
+
+  const heldOrderedBySchool = useMemo(() => {
+    const studentMap = new Map(students.map(student => [student.id, student]));
+    const ordered = new Map<SchoolId, DAStudent[]>();
+
+    schools.forEach(school => {
+      const ids = Array.from(heldBySchool.get(school.id) ?? []);
+      const list = ids
+        .map(id => studentMap.get(id))
+        .filter((student): student is DAStudent => Boolean(student))
+        .sort((a, b) => b.score - a.score);
+      ordered.set(school.id, list);
+    });
+
+    return ordered;
+  }, [heldBySchool, schools, students]);
 
   const goPrev = () => setEventIndex(prev => Math.max(prev - 1, 0));
   const goNext = () => setEventIndex(prev => Math.min(prev + 1, events.length - 1));
@@ -181,15 +204,33 @@ const DAPlayback: React.FC<DAPlaybackProps> = ({ students, schools, events, focu
               <g key={student.id}>
                 <rect
                   x={pos.x - 64}
-                  y={pos.y - 14}
+                  y={pos.y - 16}
                   width={128}
-                  height={28}
+                  height={32}
                   rx={8}
                   fill={isCurrent ? '#dbeafe' : '#f8fafc'}
                   stroke={isFocus ? '#0369a1' : '#94a3b8'}
                   strokeWidth={isFocus ? 2 : 1}
                 />
-                <text x={pos.x} y={pos.y + 4} textAnchor="middle" fontSize="12" fill="#0f172a">
+                <circle
+                  cx={pos.x - 46}
+                  cy={pos.y}
+                  r={10}
+                  fill={isCurrent ? '#2563eb' : '#64748b'}
+                  stroke={isCurrent ? '#1d4ed8' : '#475569'}
+                  strokeWidth={1.2}
+                />
+                <text
+                  x={pos.x - 46}
+                  y={pos.y + 4}
+                  textAnchor="middle"
+                  fontSize="10.5"
+                  fontWeight={800}
+                  fill="#ffffff"
+                >
+                  {shortLabel(student)}
+                </text>
+                <text x={pos.x + 10} y={pos.y + 4} textAnchor="middle" fontSize="12" fill="#0f172a">
                   {student.name} ({student.score})
                 </text>
               </g>
@@ -203,24 +244,59 @@ const DAPlayback: React.FC<DAPlaybackProps> = ({ students, schools, events, focu
             }
             const held = heldBySchool.get(school.id);
             const heldCount = held?.size ?? 0;
+            const heldStudents = heldOrderedBySchool.get(school.id) ?? [];
+            const slots = Array.from({ length: school.capacity });
 
             return (
               <g key={school.id}>
                 <rect
                   x={pos.x - 85}
-                  y={pos.y - 24}
+                  y={pos.y - 26}
                   width={170}
-                  height={48}
+                  height={54}
                   rx={10}
                   fill="#f0fdf4"
                   stroke="#16a34a"
                 />
-                <text x={pos.x} y={pos.y - 4} textAnchor="middle" fontSize="13" fill="#14532d">
+                <text x={pos.x} y={pos.y - 8} textAnchor="middle" fontSize="13" fill="#14532d">
                   {school.name}
                 </text>
-                <text x={pos.x} y={pos.y + 13} textAnchor="middle" fontSize="11" fill="#166534">
+                <text x={pos.x} y={pos.y + 8} textAnchor="middle" fontSize="11" fill="#166534">
                   仮合格 {heldCount}/{school.capacity}
                 </text>
+
+                {slots.map((_, idx) => {
+                  const student = heldStudents[idx];
+                  const slotGap = 22;
+                  const startX = pos.x - ((school.capacity - 1) * slotGap) / 2;
+                  const x = startX + idx * slotGap;
+                  const y = pos.y + 20;
+
+                  return (
+                    <g key={`${school.id}-slot-${idx}`}>
+                      <circle
+                        cx={x}
+                        cy={y + 4.5}
+                        r={8}
+                        fill={student ? '#16a34a' : '#cbd5e1'}
+                        stroke={student ? '#166534' : '#94a3b8'}
+                        strokeWidth={1.2}
+                      />
+                      {student && (
+                        <text
+                          x={x}
+                          y={y + 9}
+                          textAnchor="middle"
+                          fontSize="10.5"
+                          fontWeight={800}
+                          fill="#ffffff"
+                        >
+                          {shortLabel(student)}
+                        </text>
+                      )}
+                    </g>
+                  );
+                })}
               </g>
             );
           })}
