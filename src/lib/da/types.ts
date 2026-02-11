@@ -14,6 +14,7 @@ export interface DASchool {
   name: string;
   capacity: number;
   difficulty: number;
+  minPassingScore: number;
   specialization?: string;
 }
 

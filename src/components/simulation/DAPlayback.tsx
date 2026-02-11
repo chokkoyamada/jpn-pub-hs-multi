@@ -264,13 +264,16 @@ const DAPlayback: React.FC<DAPlaybackProps> = ({ students, schools, events, focu
                 <text x={pos.x} y={pos.y + 8} textAnchor="middle" fontSize="11" fill="#166534">
                   仮合格 {heldCount}/{school.capacity}
                 </text>
+                <text x={pos.x} y={pos.y + 20} textAnchor="middle" fontSize="10" fill="#166534">
+                  最低合格点 {school.minPassingScore}点
+                </text>
 
                 {slots.map((_, idx) => {
                   const student = heldStudents[idx];
                   const slotGap = 22;
                   const startX = pos.x - ((school.capacity - 1) * slotGap) / 2;
                   const x = startX + idx * slotGap;
-                  const y = pos.y + 20;
+                  const y = pos.y + 34;
 
                   return (
                     <g key={`${school.id}-slot-${idx}`}>

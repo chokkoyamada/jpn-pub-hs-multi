@@ -1,10 +1,10 @@
 import { StudentScenario } from './types';
 
 const schools = [
-  { id: 1, name: '東高校', capacity: 1, difficulty: 85, specialization: '総合' },
-  { id: 2, name: '西高校', capacity: 2, difficulty: 72, specialization: '理数' },
-  { id: 3, name: '南高校', capacity: 2, difficulty: 63, specialization: '国際' },
-  { id: 4, name: '北高校', capacity: 2, difficulty: 55, specialization: '総合' },
+  { id: 1, name: '人気1位校', capacity: 1, difficulty: 85, minPassingScore: 85, specialization: '総合' },
+  { id: 2, name: '人気2位校', capacity: 2, difficulty: 72, minPassingScore: 72, specialization: '理数' },
+  { id: 3, name: '人気3位校', capacity: 2, difficulty: 63, minPassingScore: 63, specialization: '国際' },
+  { id: 4, name: '人気4位校', capacity: 2, difficulty: 55, minPassingScore: 55, specialization: '総合' },
 ];
 
 export const simulationScenarios: StudentScenario[] = [
@@ -68,8 +68,8 @@ export const simulationScenarios: StudentScenario[] = [
     id: 'commute-priority',
     label: '通学と学力のバランス重視',
     description:
-      '通学しやすい学校を優先したいが、成績に見合う挑戦も捨てたくない。志望順位の微調整が結果にどう効くかを確認できます。',
-    expectedDifference: '単願: 第3〜4志望 / DA: 第2志望（順位調整の効果が見える）',
+      '通学しやすい学校を優先したいが、成績に見合う挑戦も捨てたくない。同じ前提でも制度の違いで結果が変わるケースです。',
+    expectedDifference: '単願: 第3〜4志望 / DA: 第2志望（安全網の効果が見える）',
     targetStudentId: 'you',
     schools,
     policy: { tieBreak: 'score_then_id' },
