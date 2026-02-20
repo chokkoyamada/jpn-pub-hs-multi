@@ -9,6 +9,26 @@ const schools = [
 
 export const simulationScenarios: StudentScenario[] = [
   {
+    id: 'classic-dilemma',
+    label: '挑戦か安全か ― 二択のジレンマ',
+    description:
+      '第一志望は合格確実ではないが、第二志望なら確実に受かる。単願ではどちらか一方しか選べない。DAならこのジレンマが消える基本ケースです。',
+    expectedDifference: '単願: 第一志望→不合格 / DA: 第二志望で確実に進学（安全網）',
+    targetStudentId: 'you',
+    schools: [
+      { id: 1, name: '挑戦校', capacity: 1, difficulty: 80, minPassingScore: 80, specialization: '総合' },
+      { id: 2, name: '安全校', capacity: 3, difficulty: 65, minPassingScore: 65, specialization: '総合' },
+    ],
+    policy: { tieBreak: 'score_then_id' },
+    students: [
+      { id: 'you', name: 'あなた', score: 76, preferences: [1, 2], economicStatus: 'low' },
+      { id: 'rival', name: '受験生A', score: 82, preferences: [1, 2], economicStatus: 'medium' },
+      { id: 's1', name: '受験生B', score: 71, preferences: [2], economicStatus: 'medium' },
+      { id: 's2', name: '受験生C', score: 68, preferences: [2], economicStatus: 'medium' },
+    ],
+    singleChoices: { you: 1, rival: 1, s1: 2, s2: 2 },
+  },
+  {
     id: 'ambitious-low-economy',
     label: '挑戦したいが全落ちが怖い',
     description:

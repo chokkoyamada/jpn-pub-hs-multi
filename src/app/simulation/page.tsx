@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import ScenarioPicker from '@/components/simulation/ScenarioPicker';
 import DAPlayback from '@/components/simulation/DAPlayback';
+import DilemmaExplainer from '@/components/simulation/DilemmaExplainer';
 import OutcomeSummary from '@/components/simulation/OutcomeSummary';
 import SystemComparePanel from '@/components/simulation/SystemComparePanel';
 import Button from '@/components/ui/Button';
@@ -106,6 +107,15 @@ export default function SimulationPage() {
                 ケースを選び直す
               </Button>
             </div>
+
+            {result.compare.safetyNetWorked && (
+              <DilemmaExplainer
+                targetStudent={targetStudent}
+                scenario={preparedScenario}
+                singleResult={result.compare.single}
+                daResult={result.compare.da}
+              />
+            )}
 
             <OutcomeSummary
               targetStudent={targetStudent}
